@@ -1,0 +1,8 @@
+streamlit
+chromadb
+llama-index-embeddings-huggingface
+langchain-core
+langchain-openai
+langchain-anthropic
+langgraph
+streamlit-navigation-bar
