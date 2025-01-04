@@ -49,7 +49,9 @@ st.markdown(
 
 st.markdown("<h1 style='text-align: center;'>  🧘‍♀️ Everlyn, the flower shop agent</h1>", unsafe_allow_html=True)
 
-st.markdown("This is a live demo of the interaction with an agent that can answer your questions, tips of what to buy, create new orders and update the relevant databases and review existing orders.", unsafe_allow_html=True)
+st.markdown("This is a live demo of the interaction with an agent that can answer your questions, tips of what to buy, create new orders and update the relevant databases and review existing orders. See [Journey Diagram](https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0).", unsafe_allow_html=True)
+
+
 add_vertical_space(1)
 
 

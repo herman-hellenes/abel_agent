@@ -32,5 +32,8 @@ if selected != st.session_state.selected:
 #st.title("Documentation", anchor=False)
 st.markdown("<h1 style='text-align: center;'>Resources</h1>", unsafe_allow_html=True)
 
-st.markdown("<h3 style='text-align: center;'>.. in progress ..  </h3>", unsafe_allow_html=True)
 
+
+st.markdown("<h3 style='text-align: left;'> Evelyn Demo workflow diagram for order management  </h3>", unsafe_allow_html=True)
+
+st.image("https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0")

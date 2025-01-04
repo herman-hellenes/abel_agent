@@ -42,12 +42,13 @@ tools = [query_knowledge_base, search_for_product_reccommendations, data_protect
 #    model="gpt-4o",
 #     openai_api_key=os.environ['OPENAI_API_KEY']
 # )
-
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", None) 
+#load_dotenv()
+#api_key = os.environ.get("ANTHROPIC_API_KEY", None) 
+print(os.environ['ANTHROPIC_API_KEY'])
 llm = ChatAnthropic(
    model="claude-3-haiku-20240307",
    #model="claude-3-opus-20240229",
-   anthropic_api_key=ANTHROPIC_API_KEY#os.environ['ANTHROPIC_API_KEY']
+   
 )
 llm_with_prompt = chat_template | llm.bind_tools(tools)
 
