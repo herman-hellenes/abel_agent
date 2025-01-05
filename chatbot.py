@@ -46,7 +46,8 @@ tools = [query_knowledge_base, search_for_product_reccommendations, data_protect
 #api_key = os.environ.get("ANTHROPIC_API_KEY", None) 
 print(os.environ['ANTHROPIC_API_KEY'])
 llm = ChatAnthropic(
-   model="claude-3-haiku-20240307",
+   model="claude-3-haiku-20240307"
+   
    #model="claude-3-opus-20240229",
    
 )
