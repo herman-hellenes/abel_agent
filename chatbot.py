@@ -31,11 +31,11 @@ chat_template = ChatPromptTemplate.from_messages(
     ]
 )
 
-with open('./.env', 'r', encoding='utf-8') as f:
-    for line in f:
-        key, value = line.strip().split('=')
-        os.environ[key] = value
-
+# with open('./.env', 'r', encoding='utf-8') as f:
+#     for line in f:
+#         key, value = line.strip().split('=')
+#         os.environ[key] = value
+# print(os.environ[key])
 tools = [query_knowledge_base, search_for_product_reccommendations, data_protection_check, create_new_customer, place_order, retrieve_existing_customer_orders]
 
 # llm = ChatOpenAI(
@@ -44,7 +44,7 @@ tools = [query_knowledge_base, search_for_product_reccommendations, data_protect
 # )
 #load_dotenv()
 #api_key = os.environ.get("ANTHROPIC_API_KEY", None) 
-print(os.environ['ANTHROPIC_API_KEY'])
+#print(os.environ['ANTHROPIC_API_KEY'])
 llm = ChatAnthropic(
    model="claude-3-haiku-20240307"
    
