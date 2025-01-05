@@ -1,7 +1,7 @@
-#import pysqlite3
-#import sys
-#sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
+import pysqlite3
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import sqlite3
 import streamlit as st
 from vector_store import FlowerShopVectorStore
 from chatbot import app

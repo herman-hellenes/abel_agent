@@ -1,6 +1,6 @@
 #python==3.11.5
 #sqlite3 >= 3.35.0
-#pysqlite3-binary==0.5.4
+pysqlite3-binary==0.5.4
 streamlit
 chromadb
 llama-index-embeddings-huggingface
