@@ -117,7 +117,6 @@ st.markdown(".. to let you and your customers be as productive as possible."
     unsafe_allow_html=True
 )
 
-#st.code(body, language="python", *, line_numbers=False, wrap_lines=False)
 
 
 # Footer

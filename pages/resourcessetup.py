@@ -34,6 +34,11 @@ if selected != st.session_state.selected:
 st.markdown("<h1 style='text-align: center;'>Resources Setup </h1>", unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: center;'> Selection of resources avaiable for the agent in the demonstration. This can be simply done in this manner by typing up the fields or integrated with APIs of choice straight to your system.  </h5>", unsafe_allow_html=True)
 
+st.markdown("Code example with curl", unsafe_allow_html=True)
+
+code = '''curl -s "https://api.example.com/get_inventory_data" | curl -X POST -H "Content-Type: application/json" -d @- "https://api.abelanalytics.com/post_inventory_data"
+    '''
+st.code(code, language="python")
 # Start Prompt to bot
 #################
 st.markdown("<h3 style='text-align: center;'> Prompt Setup </h3>", unsafe_allow_html=True)
