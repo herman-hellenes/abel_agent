@@ -9,7 +9,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | GenAI in the workforce
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "Demo", "Resources", "Contact"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=0,
@@ -28,11 +28,17 @@ if selected != st.session_state.selected:
    # else:
    #     st.switch_page(f"pages/{selected.lower()}.py")
 
-# Documentation content
-#st.title("Documentation", anchor=False)
+
+#logo = "public/abel-analytics-high-resolution-logo.png"
+logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
+with st.columns(3)[1]:
+    st.image(logo)
+
+# Header
+
 st.markdown("<h1 style='text-align: center;'>AI Agents that actually complete work</h1>", unsafe_allow_html=True)
 
-st.markdown("<h3 style='text-align: center;'>We power up advanced AI agents with complex reasoning and problem-solving skills. You can integrate everywhere and give them tools to do the job. </h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>We power up advanced AI agents with complex reasoning and problem-solving skills. You can integrate everywhere and give them tools and context to do the job. </h3>", unsafe_allow_html=True)
 
 
 
@@ -87,15 +93,50 @@ links_row.button(
 
 add_vertical_space(1)
 
-st.markdown(
-    "Imagine a customer facing AI that can actually carry out a booking, "
-    "a purchase, authentication, send emails, answer questions, "
-    "to let you and your customers be as productive as possible."
+st.markdown("<h5 > Imagine a customer facing AI that can actually </h5>", unsafe_allow_html=True)
+
+
+
+st.markdown("- carry out a booking")
+st.markdown("- purchase")
+st.markdown("- customer authentication")
+st.markdown("- send emails")
+st.markdown("- send emails")
+
+st.markdown('''
+<style>
+[data-testid="stMarkdownContainer"] ul{
+    list-style-position: inside;
+}
+</style>
+''', unsafe_allow_html=True)
+
+st.markdown(".. to let you and your customers be as productive as possible."
     "One agent can serve online customer support, another serve in the internal HR team, while another at IT support. "
     ,
     unsafe_allow_html=True
 )
 
-
 #st.code(body, language="python", *, line_numbers=False, wrap_lines=False)
 
+
+# Footer
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
+footer_html = """<div style='text-align: center;'>
+  <p>Developed with ❤️ by </p>
+</div>"""
+
+
+add_vertical_space(3)
+st.markdown(footer_html, unsafe_allow_html=True)
+logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
+with st.columns(3)[1]:
+    st.image(logo)
+
+links_row = row(1, vertical_align="center")
+links_row.button(
+    "✉️   herman@abelanalytics.no ",
+    "herman@abelanalytics.no",
+    use_container_width=True,
+)

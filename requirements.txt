@@ -11,3 +11,4 @@ langgraph
 streamlit-navigation-bar
 streamlit-extras
 streamlit_option_menu 
+streamlit_shadcn_ui

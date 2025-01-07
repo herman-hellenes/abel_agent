@@ -1,0 +1,4 @@
+[
+    {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Red Roses Bouquet"], "quantity": [1]},
+    {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Mixed Tulips", "Vase"], "quantity": [3, 1]}
+]

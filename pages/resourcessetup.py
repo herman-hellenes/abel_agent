@@ -12,17 +12,17 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Demo Settings', page_i
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "Demo", "Resources", "Contact", "Demo_settings"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
-   default_index=4,
+   default_index=2,
    orientation="horizontal",
 )
 
 
 # This initialization happens AFTER the menu selection
 if "selected" not in st.session_state:
-   st.session_state.selected = "Demo_settings"
+   st.session_state.selected = "ResourcesSetup"
 if selected != st.session_state.selected:
    st.session_state.selected = selected
    st.switch_page(f"pages/{selected.lower()}.py")
@@ -31,10 +31,12 @@ if selected != st.session_state.selected:
    # else:
    #     st.switch_page(f"pages/{selected.lower()}.py")
 
+st.markdown("<h1 style='text-align: center;'>Resources Setup </h1>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'> Selection of resources avaiable for the agent in the demonstration. This can be simply done in this manner by typing up the fields or integrated with APIs of choice straight to your system.  </h5>", unsafe_allow_html=True)
 
 # Start Prompt to bot
 #################
-st.markdown("<h3 style='text-align: center;'> Start Prompt to agent </h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'> Prompt Setup </h3>", unsafe_allow_html=True)
 
 with open("prompt_xc.txt", 'r') as file:
       content = file.read()
@@ -61,7 +63,7 @@ st.data_editor(df, use_container_width=True)
 
 # Q&A to bot
 #################
-st.markdown("<h3 style='text-align: center;'> FAQ agent setup </h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'> FAQ </h3>", unsafe_allow_html=True)
 
 # Load the JSON data from the file
 with open('FAQ_xc.json', 'r') as f:
@@ -76,3 +78,52 @@ df_faq = pd.DataFrame(data_faq)
 # )
 #st.dataframe(df, use_container_width=True)
 st.data_editor(data_faq, use_container_width=True)
+
+
+
+
+# customer database
+#################
+st.markdown("<h3 style='text-align: center;'> Customer Database </h3>", unsafe_allow_html=True)
+
+# Load the JSON data from the file
+with open('customers_database.json', 'r') as f:
+    data_customer = json.load(f)
+df_customer= pd.DataFrame(data_customer) 
+st.data_editor(df_customer, use_container_width=True)
+
+
+# orders database
+#################
+st.markdown("<h3 style='text-align: center;'> Orders Database </h3>", unsafe_allow_html=True)
+
+# Load the JSON data from the file
+with open('orders_database.json', 'r') as f:
+    data_orders = json.load(f)
+df_orders = pd.DataFrame(data_orders) 
+st.data_editor(df_orders, use_container_width=True)
+
+st.markdown("<h3 style='text-align: center;'> etc.. </h3>", unsafe_allow_html=True)
+
+
+# Footer
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
+footer_html = """<div style='text-align: center;'>
+  <p>Developed with ❤️ by </p>
+</div>"""
+
+
+add_vertical_space(3)
+st.markdown(footer_html, unsafe_allow_html=True)
+logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
+with st.columns(3)[1]:
+    st.image(logo)
+
+links_row = row(1, vertical_align="center")
+links_row.button(
+    "✉️   herman@abelanalytics.no ",
+    "herman@abelanalytics.no",
+    use_container_width=True,
+)
+

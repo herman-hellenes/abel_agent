@@ -17,10 +17,10 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Everlyn Demo', page_ic
 from streamlit_option_menu import option_menu
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "Demo", "Resources", "Contact"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
-   default_index=1,
+   default_index=3,
    orientation="horizontal",
 )
 
@@ -49,8 +49,9 @@ st.markdown(
 
 st.markdown("<h1 style='text-align: center;'>  🧘‍♀️ Everlyn, the flower shop agent</h1>", unsafe_allow_html=True)
 
-st.markdown("This is a live demo of the interaction with an agent that can answer your questions, tips of what to buy, create new orders and update the relevant databases and review existing orders. See [Journey Diagram](https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0).", unsafe_allow_html=True)
-st.page_link("pages/demo_settings.py", label="To review and edit settings", icon="🪛")
+st.markdown("This is a live demo of the interaction with an agent that can answer your questions, tips of what to buy, create new orders and update the relevant databases and review existing orders. We here display way more than what an end-user will see; including the agent's chain of thought in order to come up with the final answer, the customer database on the top right, and below that the data protection checks.", unsafe_allow_html=True)
+st.page_link("pages/resourcessetup.py", label="To review and edit resources", icon="🪛")
+st.page_link("pages/logicsetup.py", label="To review and edit logic", icon="🔨")
 
 
 add_vertical_space(1)
@@ -96,4 +97,29 @@ with right_col:
     st.write(customers_database)
     st.title('data protection checks')
     st.write(data_protection_checks)
+
+
+
+
+# Footer
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
+footer_html = """<div style='text-align: center;'>
+  <p>Developed with ❤️ by </p>
+</div>"""
+
+
+add_vertical_space(3)
+st.markdown(footer_html, unsafe_allow_html=True)
+logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
+with st.columns(3)[1]:
+    st.image(logo)
+
+links_row = row(1, vertical_align="center")
+links_row.button(
+    "✉️   herman@abelanalytics.no ",
+    "herman@abelanalytics.no",
+    use_container_width=True,
+)
+
 

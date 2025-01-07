@@ -1,7 +1,9 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
 # Keep the same navbar for consistency
-st.set_page_config(layout='wide', page_title='Cartwheel | Contact', page_icon='🤸',initial_sidebar_state="collapsed")
+st.set_page_config(layout='wide', page_title='Cartwheel | LogicSetup', page_icon='🤸',initial_sidebar_state="collapsed")
 
 # Move this initialization before the option_menu
 #if "selected" not in st.session_state:
@@ -9,17 +11,17 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Contact', page_icon='�
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Contact"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
-   default_index=3,
+   default_index=1,
    orientation="horizontal",
 )
 
 
 # This initialization happens AFTER the menu selection
 if "selected" not in st.session_state:
-   st.session_state.selected = "Contact"
+   st.session_state.selected = "logicsetup"
 if selected != st.session_state.selected:
    st.session_state.selected = selected
    st.switch_page(f"pages/{selected.lower()}.py")
@@ -30,14 +32,17 @@ if selected != st.session_state.selected:
 
 # Documentation content
 #st.title("Documentation", anchor=False)
-st.markdown("<h1 style='text-align: center;'>Get in touch</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Logic Setup </h1>", unsafe_allow_html=True)
 
-st.markdown("<h3 style='text-align: center;'> herman@abelanalytics.no </h3>", unsafe_allow_html=True)
+
+
+st.markdown("<h6 style='text-align: left;'> Setup of workflow and interaction of tooling. This is the current example applied in the demo. In subscriber tier will this be interactive with numerous templates and customization. </h6>", unsafe_allow_html=True)
+
+st.image("https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0")
+
 
 
 # Footer
-from streamlit_extras.add_vertical_space import add_vertical_space
-from streamlit_extras.row import row
 footer_html = """<div style='text-align: center;'>
   <p>Developed with ❤️ by </p>
 </div>"""
@@ -55,6 +60,4 @@ links_row.button(
     "herman@abelanalytics.no",
     use_container_width=True,
 )
-
-
 
