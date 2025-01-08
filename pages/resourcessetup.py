@@ -111,11 +111,11 @@ st.data_editor(df_orders, use_container_width=True)
 st.markdown("<h3 style='text-align: center;'> etc.. </h3>", unsafe_allow_html=True)
 
 
-# Footer
+
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.row import row
 footer_html = """<div style='text-align: center;'>
-  <p>Developed with ❤️ by </p>
+  <p>Developed by herman@abelanalytics.no </p>
 </div>"""
 
 
@@ -125,10 +125,11 @@ logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
 with st.columns(3)[1]:
     st.image(logo)
 
-links_row = row(1, vertical_align="center")
-links_row.button(
-    "✉️   herman@abelanalytics.no ",
-    "herman@abelanalytics.no",
-    use_container_width=True,
-)
+
+# links_row = row(1, vertical_align="center")
+# links_row.button(
+#     "✉️   herman@abelanalytics.no ",
+#     "herman@abelanalytics.no",
+#     use_container_width=True,
+# )
 

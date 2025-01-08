@@ -41,10 +41,10 @@ st.markdown("<h6 style='text-align: left;'> Setup of workflow and interaction of
 st.image("https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0")
 
 
-
-# Footer
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
 footer_html = """<div style='text-align: center;'>
-  <p>Developed with ❤️ by </p>
+  <p>Developed by herman@abelanalytics.no </p>
 </div>"""
 
 
@@ -53,11 +53,3 @@ st.markdown(footer_html, unsafe_allow_html=True)
 logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
 with st.columns(3)[1]:
     st.image(logo)
-
-links_row = row(1, vertical_align="center")
-links_row.button(
-    "✉️   herman@abelanalytics.no ",
-    "herman@abelanalytics.no",
-    use_container_width=True,
-)
-
