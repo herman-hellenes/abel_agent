@@ -6,14 +6,17 @@ import json
 import os
 from dotenv import load_dotenv
 load_dotenv() 
+
+import mypaths
+
 MODEL_NAME = 'dunzhang/stella_en_1.5B_v5'
-DB_PATH = './.chroma_db'
+DB_PATH = mypaths.DB_PATH#'./.chroma_db'
 #FAQ_FILE_PATH= './FAQ_xc.json'
 #INVENTORY_FILE_PATH = './inventory_xc.json'
 # FAQ_FILE_PATH= './FAQ.json'
 # INVENTORY_FILE_PATH = './inventory.json'
-FAQ_FILE_PATH = os.getenv('FAQ_FILE_PATH')
-INVENTORY_FILE_PATH = os.getenv('INVENTORY_FILE_PATH')
+FAQ_FILE_PATH = mypaths.FAQ_FILE_PATH#os.getenv('FAQ_FILE_PATH')
+INVENTORY_FILE_PATH = mypaths.INVENTORY_FILE_PATH#os.getenv('INVENTORY_FILE_PATH')
 #DB_PATH = os.getenv('DB_PATH')
 
 

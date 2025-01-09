@@ -10,9 +10,13 @@ from dotenv import load_dotenv
 load_dotenv() 
 
 #derfine start prompt
-PERSONA = os.getenv('PERSONA')
-with open("resources/"+PERSONA+"/prompt.txt", 'r') as file:
+import mypaths
+with open(mypaths.PERSONA, 'r') as file:
       prompt = file.read()
+#PERSONA = 'flower_shop'#os.getenv('PERSONA')
+
+# with open("resources/"+PERSONA+"/prompt.txt", 'r') as file:
+# prompt = file.read()
 
 # prompt = """#Purpose 
 
