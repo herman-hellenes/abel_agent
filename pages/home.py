@@ -9,7 +9,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | GenAI in the workforce
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Evaluate","Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=0,
@@ -30,9 +30,9 @@ if selected != st.session_state.selected:
 
 
 #logo = "public/abel-analytics-high-resolution-logo.png"
-logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
-with st.columns(3)[1]:
-    st.image(logo)
+# logo = "public/abel-analytics-high-resolution-logo-transparent (1).png"
+# with st.columns(3)[1]:
+#     st.image(logo)
 
 # Header
 

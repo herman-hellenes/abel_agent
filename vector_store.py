@@ -3,13 +3,20 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from typing import List
 import json
 
-
+import os
+from dotenv import load_dotenv
+load_dotenv() 
 MODEL_NAME = 'dunzhang/stella_en_1.5B_v5'
-DB_PATH = './.chroma_db'
-FAQ_FILE_PATH= './FAQ_xc.json'
-INVENTORY_FILE_PATH = './inventory_xc.json'
+#DB_PATH = './.chroma_db'
+#FAQ_FILE_PATH= './FAQ_xc.json'
+#INVENTORY_FILE_PATH = './inventory_xc.json'
 # FAQ_FILE_PATH= './FAQ.json'
 # INVENTORY_FILE_PATH = './inventory.json'
+FAQ_FILE_PATH = os.getenv('FAQ_FILE_PATH')
+INVENTORY_FILE_PATH = os.getenv('INVENTORY_FILE_PATH')
+DB_PATH = os.getenv('DB_PATH')
+
+
 
 class Product:
     def __init__(self, name: str, id: str, description: str, type: str, price: float, quantity: int):

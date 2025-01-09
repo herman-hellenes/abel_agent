@@ -12,7 +12,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Demo Settings', page_i
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Evaluate", "Demo"],
+   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=2,

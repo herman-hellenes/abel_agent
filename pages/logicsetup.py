@@ -11,7 +11,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | LogicSetup', page_icon
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Demo"],
+   options=["Home", "LogicSetup", "ResourcesSetup","Evaluate", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=1,
@@ -34,9 +34,16 @@ if selected != st.session_state.selected:
 #st.title("Documentation", anchor=False)
 st.markdown("<h1 style='text-align: center;'>Logic Setup </h1>", unsafe_allow_html=True)
 
+option = st.selectbox(
+    "Select LLM ",
+    ("openai:gpt-4o", "openai:o1-mini", "openai:gpt-4-turbo","anthropic:claude-3-5-sonnet-20240620","anthropic:claude-3-5-haiku-20241022","google:gemini-2.0-flash-exp",
+     "together:meta-llama/Llama-3.3-70B-Instruct-Turbo","groq:llama-3.3-70b-versatile","perplexity:llama-3.1-sonar-huge-128k-online"),
+)
 
+st.write("You selected:", option)
 
-st.markdown("<h6 style='text-align: left;'> Setup of workflow and interaction of tooling. This is the current example applied in the demo. In subscriber tier will this be interactive with numerous templates and customization. </h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: left;'> Further setup of workflow and interaction of tooling; below is the current example that's applied in the Demo. In logged in pages, this is interactive with numerous templates and customization. </h6>", unsafe_allow_html=True)
+
 
 st.image("https://github.com/user-attachments/assets/62305fcb-3414-41a2-9e2d-8f306219ccc0")
 

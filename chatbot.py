@@ -9,20 +9,25 @@ import os
 from dotenv import load_dotenv
 load_dotenv() 
 
-prompt = """#Purpose 
+#derfine start prompt
+PERSONA = os.getenv('PERSONA')
+with open("resources/"+PERSONA+"/prompt.txt", 'r') as file:
+      prompt = file.read()
 
-You are a customer service chatbot for a flower shop company. You can help the customer achieve the goals listed below.
+# prompt = """#Purpose 
 
-#Goals
+# You are a customer service chatbot for a flower shop company. You can help the customer achieve the goals listed below.
 
-1. Answer questions the user might have relating to serivces offered
-2. Recommend products to the user based on their preferences
-3. Help the customer check on an existing order, or place a new order
-4. To place and manage orders, you will need a customer profile (with an associated id). If the customer already has a profile, perform a data protection check to retrieve their details. If not, create them a profile.
+# #Goals
 
-#Tone
+# 1. Answer questions the user might have relating to serivces offered
+# 2. Recommend products to the user based on their preferences
+# 3. Help the customer check on an existing order, or place a new order
+# 4. To place and manage orders, you will need a customer profile (with an associated id). If the customer already has a profile, perform a data protection check to retrieve their details. If not, create them a profile.
 
-Helpful and friendly. Use gen-z emojis to keep things lighthearted. You MUST always include a funny flower related pun in every response."""
+# #Tone
+
+# Helpful and friendly. Use gen-z emojis to keep things lighthearted. You MUST always include a funny flower related pun in every response."""
 
 chat_template = ChatPromptTemplate.from_messages(
     [
