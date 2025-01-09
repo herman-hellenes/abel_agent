@@ -17,7 +17,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Everlyn Demo', page_ic
 from streamlit_option_menu import option_menu
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Evaluate","Demo"],
+   options=["Home", "Logic Setup", "Resources Setup", "Evaluate","Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=4,
@@ -28,7 +28,8 @@ if "selected" not in st.session_state:
    st.session_state.selected = "Demo"
 if selected != st.session_state.selected:
    st.session_state.selected = selected
-   st.switch_page(f"pages/{selected.lower()}.py")
+   #st.switch_page(f"pages/{selected.lower()}.py")
+   st.switch_page(f"pages/{selected.lower().replace(' ', '')}.py")
 
 # Hide sidebar
 st.markdown(

@@ -13,7 +13,7 @@ st.set_page_config(layout='wide', page_title='Cartwheel | Evaluate', page_icon='
 
 selected = option_menu(
    menu_title=None,  # No title to make it look like a navbar
-   options=["Home", "LogicSetup", "ResourcesSetup", "Evaluate", "Demo"],
+   options=["Home", "Logic Setup", "Resources Setup", "Evaluate", "Demo"],
    icons=["house", "book", "code", "people", "info"],  # Optional Bootstrap icons
    menu_icon="cast",
    default_index=3,
@@ -26,7 +26,8 @@ if "selected" not in st.session_state:
    st.session_state.selected = "Evaluate"
 if selected != st.session_state.selected:
    st.session_state.selected = selected
-   st.switch_page(f"pages/{selected.lower()}.py")
+   #st.switch_page(f"pages/{selected.lower()}.py")
+   st.switch_page(f"pages/{selected.lower().replace(' ', '')}.py")
    # if selected == "Home":
    #     st.switch_page("pages/home.py")
    # else:
