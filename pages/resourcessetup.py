@@ -3,6 +3,10 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import json
 import mypaths
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.row import row
+
+
 # Keep the same navbar for consistency
 st.set_page_config(layout='wide', page_title='Cartwheel | Demo Settings', page_icon='🤸',initial_sidebar_state="collapsed")
 
@@ -34,8 +38,18 @@ if selected != st.session_state.selected:
 
 st.markdown("<h1 style='text-align: center;'>Resources Setup </h1>", unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: center;'> Selection of resources avaiable for the agent in the demonstration. This can be simply done in this manner by typing up the fields or integrated with APIs of choice straight to your system.  </h5>", unsafe_allow_html=True)
+add_vertical_space(3)
 
-st.markdown("Code example with curl", unsafe_allow_html=True)
+
+st.markdown(" <h5> How to integrate chat agent into your website </h5>", unsafe_allow_html=True)
+st.markdown("You simply add this to your React/HTML:", unsafe_allow_html=True)
+
+code = '''<script src="<https://abelanalytics.com/agent/[your_company].js>" />
+    '''
+st.code(code, language="python")
+
+
+st.markdown("Code example with curl to integrate your databases", unsafe_allow_html=True)
 
 code = '''curl -s "https://api.example.com/get_inventory_data" | curl -X POST -H "Content-Type: application/json" -d @- "https://api.abelanalytics.com/post_inventory_data"
     '''
@@ -110,12 +124,9 @@ with open(mypaths.ORDERS_DB_FILE_PATH, 'r') as f:
 df_orders = pd.DataFrame(data_orders) 
 st.data_editor(df_orders, use_container_width=True)
 
-st.markdown("<h3 style='text-align: center;'> etc.. </h3>", unsafe_allow_html=True)
 
 
 
-from streamlit_extras.add_vertical_space import add_vertical_space
-from streamlit_extras.row import row
 footer_html = """<div style='text-align: center;'>
   <p>Developed by herman@abelanalytics.no </p>
 </div>"""
