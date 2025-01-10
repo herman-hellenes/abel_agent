@@ -50,7 +50,7 @@ st.markdown(
 
 # Documentation content
 #st.title("Documentation", anchor=False)
-st.markdown("<h1 style='text-align: center;'>Dr Appointment Manager</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Meet Lucas, your doctor's Appointment Manager</h1>", unsafe_allow_html=True)
 
 st.markdown("Here you can book your doctor's appointment by talking to our agent. You can also check next available time, cancel your appointsment, etc. ", unsafe_allow_html=True)
 

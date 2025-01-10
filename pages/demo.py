@@ -67,7 +67,7 @@ st.markdown(
 # Handle navigation
 
 
-st.markdown("<h1 style='text-align: center;'>  🧘‍♀️ Everlyn, the eCommerce shop agent</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>  Meet Everlyn, your eCommerce shop agent</h1>", unsafe_allow_html=True)
 
 st.markdown("This is a live demo of the interaction with an agent that can answer your questions, tips of what to buy, create new orders and update the relevant databases and review existing orders. We here display way more than what an end-user will see; including the agent's chain of thought in order to come up with the final answer, the customer database on the top right, and below that the data protection checks.", unsafe_allow_html=True)
 st.page_link("pages/resourcessetup.py", label="To review and edit resources", icon="🪛")
