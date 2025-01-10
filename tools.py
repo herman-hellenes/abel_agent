@@ -2,20 +2,27 @@ from langchain_core.tools import tool
 from typing import List, Dict
 from vector_store import FlowerShopVectorStore
 import json
-
+import mypaths
 vector_store = FlowerShopVectorStore()
 
-customers_database = [
-    {"name": "John Doe", "postcode": "SW1A 1AA", "dob": "1990-01-01", "customer_id": "CUST001", "first_line_address": "123 Main St", "phone_number": "07712345678", "email": "john.doe@example.com"},
-    {"name": "Jane Smith", "postcode": "E1 6AN", "dob": "1985-05-15", "customer_id": "CUST002", "first_line_address": "456 High St", "phone_number": "07723456789", "email": "jane.smith@example.com"},
-]
 
-orders_database = [
-    {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Red Roses Bouquet"], "quantity": [1]},
-    {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Mixed Tulips", "Vase"], "quantity": [3, 1]},
-]
+with open(mypaths.CUSTOMER_DB_FILE_PATH, 'r') as f:
+    customers_database = json.load(f)
 
-with open('inventory.json', 'r') as f:
+with open(mypaths.ORDERS_DB_FILE_PATH, 'r') as f:
+    orders_database = json.load(f)   
+
+# customers_database = [
+#     {"name": "John Doe", "postcode": "SW1A 1AA", "dob": "1990-01-01", "customer_id": "CUST001", "first_line_address": "123 Main St", "phone_number": "07712345678", "email": "john.doe@example.com"},
+#     {"name": "Jane Smith", "postcode": "E1 6AN", "dob": "1985-05-15", "customer_id": "CUST002", "first_line_address": "456 High St", "phone_number": "07723456789", "email": "jane.smith@example.com"},
+# ]
+
+# orders_database = [
+#     {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Red Roses Bouquet"], "quantity": [1]},
+#     {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Mixed Tulips", "Vase"], "quantity": [3, 1]},
+# ]
+
+with open(mypaths.INVENTORY_FILE_PATH, 'r') as f:
     inventory_database = json.load(f)
 
 data_protection_checks = []

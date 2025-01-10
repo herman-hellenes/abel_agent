@@ -2,7 +2,7 @@ import streamlit as st
 from vector_store import FlowerShopVectorStore
 from chatbot import app
 from langchain_core.messages import AIMessage, HumanMessage
-from tools import customers_database, data_protection_checks
+from tools import customers_database, data_protection_checks, orders_database
 from streamlit_extras.add_vertical_space import add_vertical_space
 import mypaths
 
@@ -93,12 +93,25 @@ with main_col:
             message_box = st.chat_message('user')
         message_box.markdown(this_message.content)
 # 3. State variables
-
+import pandas as pd
 with right_col:
-    st.title('customers database')
-    st.write(customers_database)
-    st.title('data protection checks')
-    st.write(data_protection_checks)
+    #show customer db
+    st.markdown("<h6 style='text-align: center;'> customer database </h6>", unsafe_allow_html=True)
+    customers_database_df = pd.DataFrame(customers_database) 
+    st.dataframe(customers_database_df, use_container_width=True)
+    #st.write(customers_database)
+
+    #show data protection checks
+    st.markdown("<h6 style='text-align: center;'> data protection checks </h6>", unsafe_allow_html=True)
+    data_protection_checks_df = pd.DataFrame(data_protection_checks) 
+    st.dataframe(data_protection_checks_df, use_container_width=True)
+    # st.title('data protection checks')
+    # st.write(data_protection_checks)
+
+    #show orders
+    st.markdown("<h6 style='text-align: center;'> orders </h6>", unsafe_allow_html=True)
+    orders_database_df = pd.DataFrame(orders_database) 
+    st.dataframe(orders_database_df, use_container_width=True)
 
 
 

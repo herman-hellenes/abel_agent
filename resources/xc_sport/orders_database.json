@@ -1,0 +1,4 @@
+[
+    {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Klatrebibelen - En praktisk Guide"], "quantity": [1]},
+    {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Aerotherm Mens Vest Vindtett og med litt ekstra varme", "Highpile Hooded Wmns Jacket Varm og komfortabel fleecejakke"], "quantity": [3, 1]}
+]

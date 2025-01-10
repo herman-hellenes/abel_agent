@@ -1,0 +1,4 @@
+[
+    {"name": "Peter Johnson", "postcode": "0357", "dob": "1990-01-01", "customer_id": "CUST001", "first_line_address": "Storgata 21", "phone_number": "04791842333", "email": "peter@johnson.com"},
+    {"name": "Ida Petersen", "postcode": "7014", "dob": "1985-05-15", "customer_id": "CUST002", "first_line_address": "Landeveien 3", "phone_number": "04790666606", "email": "ida@petersen.com"}
+]
