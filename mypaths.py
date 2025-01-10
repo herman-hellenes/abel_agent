@@ -1,4 +1,18 @@
 AGENT_TYPE = 'xc_sport' #must correspond to subfolder of ./resources
+
+#TRY TO GET THIS UPDATED DYNAMICALLY
+# import streamlit as st
+# def get_agent_config():
+#    # Always get the latest value from session state
+#    return {
+#        "agent_type": st.session_state.get('AGENT_TYPE', 'flower_shop'),
+#        "path": f"path/to/{st.session_state.get('AGENT_TYPE', 'General').lower()}"
+#    }
+# # Use it when needed
+# config = get_agent_config()
+# AGENT_TYPE = config['agent_type']
+#GENT_PATH = config['path']
+
 #Setting the Resources
 PERSONA = 'resources/'+AGENT_TYPE+'/prompt.txt'
 GREETING = 'resources/'+AGENT_TYPE+'/greeting.txt'

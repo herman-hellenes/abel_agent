@@ -5,13 +5,32 @@ from langchain_core.messages import AIMessage, HumanMessage
 from tools import customers_database, data_protection_checks, orders_database
 from streamlit_extras.add_vertical_space import add_vertical_space
 import mypaths
+st.set_page_config(layout='wide', page_title='Cartwheel | Everlyn Demo', page_icon='🤸',initial_sidebar_state="collapsed" )
+
+# #SETTING AGENT TYPE: TODO!!
+# AGENT_TYPES = ["flower_shop", "xc_sport"]
+# # Store in session state to persist across reruns
+# if 'AGENT_TYPE' not in st.session_state:
+#     st.session_state.AGENT_TYPE = AGENT_TYPES[0]
+
+# # Create dropdown and update session state when changed
+# selected_type = st.selectbox(
+#     "Select Agent Type",
+#     options=AGENT_TYPES,
+#     index=AGENT_TYPES.index(st.session_state.AGENT_TYPE)
+# )
+
+# # Update session state if selection changes
+# if selected_type != st.session_state.AGENT_TYPE:
+#     st.session_state.AGENT_TYPE = selected_type
+#     st.rerun()  # Force a rerun to update everything
 
 
-
+# # Display current agent type
+# st.write(f"Current Agent Type: {st.session_state.AGENT_TYPE}")
 
 #from streamlit_navigation_bar import st_navbar
 
-st.set_page_config(layout='wide', page_title='Cartwheel | Everlyn Demo', page_icon='🤸',initial_sidebar_state="collapsed" )
 
 #Navbar
 from streamlit_option_menu import option_menu
