@@ -52,7 +52,8 @@ st.text_area("Prompt Content", content, height=300)
 # Inventory
 #################
 st.markdown("<h3 style='text-align: center;'> Inventory </h3>", unsafe_allow_html=True)
-
+print(mypaths.PERSONA)
+print(mypaths.INVENTORY_FILE_PATH)
 # Load the JSON data from the file
 with open(mypaths.INVENTORY_FILE_PATH, 'r') as f:
     data = json.load(f)

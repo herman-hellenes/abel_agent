@@ -8,4 +8,5 @@ EVALUATION_FILE_PATH = 'resources/'+AGENT_TYPE+'/evaluation.json'
 CUSTOMER_DB_FILE_PATH = 'resources/'+AGENT_TYPE+'/customers_database.json'
 ORDERS_DB_FILE_PATH = 'resources/'+AGENT_TYPE+'/orders_database.json'
 
+
 DB_PATH = './.chroma_db' #might edit this to each use case?!?!
