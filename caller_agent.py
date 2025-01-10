@@ -56,7 +56,7 @@ tool_node = ToolNode(caller_tools)
 
 
 caller_pa_prompt = """You are a personal assistant, and need to help the user to book or cancel appointments, you should check the available appointments before booking anything. Be extremely polite, so much so that it is almost rude.
-Current time: {current_time}
+Current time: {current_time}. If a customer suggest "tomorrow" or "next week", you add that to the current time.
 """
 
 caller_chat_template = ChatPromptTemplate.from_messages([

@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_option_menu import option_menu
 import json
-
+import mypaths
 # Keep the same navbar for consistency
 st.set_page_config(layout='wide', page_title='Cartwheel | Demo Settings', page_icon='🤸',initial_sidebar_state="collapsed")
 
@@ -44,7 +44,7 @@ st.code(code, language="python")
 #################
 st.markdown("<h3 style='text-align: center;'> Prompt Setup </h3>", unsafe_allow_html=True)
 
-with open("prompt_xc.txt", 'r') as file:
+with open(mypaths.PERSONA, 'r') as file:
       content = file.read()
 
 # Display the text content
@@ -54,7 +54,7 @@ st.text_area("Prompt Content", content, height=300)
 st.markdown("<h3 style='text-align: center;'> Inventory </h3>", unsafe_allow_html=True)
 
 # Load the JSON data from the file
-with open('inventory_xc.json', 'r') as f:
+with open(mypaths.INVENTORY_FILE_PATH, 'r') as f:
     data = json.load(f)
 df = pd.DataFrame(data) 
 # df = pd.DataFrame(
@@ -72,7 +72,7 @@ st.data_editor(df, use_container_width=True)
 st.markdown("<h3 style='text-align: center;'> FAQ </h3>", unsafe_allow_html=True)
 
 # Load the JSON data from the file
-with open('FAQ_xc.json', 'r') as f:
+with open(mypaths.FAQ_FILE_PATH, 'r') as f:
     data_faq = json.load(f)
 df_faq = pd.DataFrame(data_faq) 
 # df = pd.DataFrame(
@@ -93,7 +93,7 @@ st.data_editor(data_faq, use_container_width=True)
 st.markdown("<h3 style='text-align: center;'> Customer Database </h3>", unsafe_allow_html=True)
 
 # Load the JSON data from the file
-with open('customers_database.json', 'r') as f:
+with open(mypaths.CUSTOMER_DB_FILE_PATH, 'r') as f:
     data_customer = json.load(f)
 df_customer= pd.DataFrame(data_customer) 
 st.data_editor(df_customer, use_container_width=True)
@@ -104,7 +104,7 @@ st.data_editor(df_customer, use_container_width=True)
 st.markdown("<h3 style='text-align: center;'> Orders Database </h3>", unsafe_allow_html=True)
 
 # Load the JSON data from the file
-with open('orders_database.json', 'r') as f:
+with open(mypaths.ORDERS_DB_FILE_PATH, 'r') as f:
     data_orders = json.load(f)
 df_orders = pd.DataFrame(data_orders) 
 st.data_editor(df_orders, use_container_width=True)

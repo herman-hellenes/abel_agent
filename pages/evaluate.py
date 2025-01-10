@@ -4,6 +4,7 @@ from streamlit_option_menu import option_menu
 import json
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.row import row
+import mypaths
 # Keep the same navbar for consistency
 st.set_page_config(layout='wide', page_title='Cartwheel | Evaluate', page_icon='🤸',initial_sidebar_state="collapsed")
 
@@ -65,7 +66,7 @@ st.markdown("<h3 >Evaluation </h3>", unsafe_allow_html=True)
 # Load the JSON data from the file
 st.markdown("For each model run, such overview is available:", unsafe_allow_html=True)
 
-with open('evaluation.json', 'r') as f:
+with open(mypaths.EVALUATION_FILE_PATH, 'r') as f:
     data_faq = json.load(f)
 df_faq = pd.DataFrame(data_faq) 
 # df = pd.DataFrame(

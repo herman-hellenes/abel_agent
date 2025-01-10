@@ -7,9 +7,10 @@ import os
 #         os.environ[key] = value.strip()
 
 import streamlit as st
-from caller_agent import CONVERSATION, receive_message_from_caller
+from caller_agent import CONVERSATION, receive_message_from_caller, caller_app
 from appointment_tools import APPOINTMENTS
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage,  AIMessage
+
 import langsmith
 
 langsmith.debug = True                                                   
@@ -57,9 +58,17 @@ st.markdown("Here you can book your doctor's appointment by talking to our agent
 def submit_message():
     receive_message_from_caller(st.session_state["message"])
 
-col1, col2 = st.columns(2)
+#left_col, col1, col2 = st.columns(3)
+left_col, main_col, right_col = st.columns([1, 2, 1])
+if 'message_history' not in st.session_state:
+    st.session_state.message_history = [AIMessage(content="Hi, please let me help you booking an appointment for you. What could be a suitable time? ")]
 
-with col1:
+
+with left_col:
+    if st.button('Clear Chat'):
+        st.session_state.message_history = []
+
+with main_col:
     st.subheader("Appointment Manager")
 
     for message in CONVERSATION:
@@ -72,7 +81,31 @@ with col1:
     
     message = st.chat_input("Type message here", on_submit=submit_message, key="message")
 
+# with main_col:
+#     st.subheader("Appointment Manager")
+#     user_input = st.chat_input("Type here...")
 
-with col2:
+#     if user_input:
+#         st.session_state.message_history.append(HumanMessage(content=user_input))
+
+#         response = caller_app.invoke({
+#             'messages': st.session_state.message_history
+#         })
+
+#         st.session_state.message_history = response['messages']
+
+#     for i in range(1, len(st.session_state.message_history) + 1):
+#         this_message = st.session_state.message_history[-i]
+#         if isinstance(this_message, AIMessage):
+#             message_box = st.chat_message('assistant')
+#         else:
+#             message_box = st.chat_message('user')
+#         message_box.markdown(this_message.content)
+
+
+with right_col:
     st.header("Appointments")
     st.write(APPOINTMENTS)
+
+
+    
