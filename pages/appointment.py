@@ -58,15 +58,28 @@ st.markdown("Here you can book your doctor's appointment by talking to our agent
 def submit_message():
     receive_message_from_caller(st.session_state["message"])
 
-#left_col, col1, col2 = st.columns(3)
+#main_col, right_col = st.columns(2)
 left_col, main_col, right_col = st.columns([1, 2, 1])
-if 'message_history' not in st.session_state:
-    st.session_state.message_history = [AIMessage(content="Hi, please let me help you booking an appointment for you. What could be a suitable time? ")]
-
-
+#if 'message_history' not in st.session_state:
+    #st.session_state.message_history = [AIMessage(content="Hi, please let me help you booking an appointment for you. What could be a suitable time? ")]
 with left_col:
-    if st.button('Clear Chat'):
-        st.session_state.message_history = []
+
+    if st.button("Clear Chat"):
+        st.markdown('Clear button not yet implemented')
+#         # Clear specific session state variables
+#         if 'messages' in st.session_state:
+#             st.session_state.messages = []
+#         if 'chat_history' in st.session_state:
+#             st.session_state.chat_history = []
+#         if 'conversation_id' in st.session_state:
+#             st.session_state.conversation_id = None
+        
+#     # Force a rerun
+#     st.rerun()
+
+# with left_col:
+#     if st.button('Clear Chat'):
+#         #st.session_state.message_history = []
 
 with main_col:
     st.subheader("Appointment Manager")
