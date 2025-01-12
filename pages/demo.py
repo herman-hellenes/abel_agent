@@ -99,7 +99,8 @@ with main_col:
         st.session_state.message_history.append(HumanMessage(content=user_input))
 
         response = app.invoke({
-            'messages': st.session_state.message_history
+            'messages': st.session_state.message_history,
+            "recursion_limit": 100
         })
 
         st.session_state.message_history = response['messages']
@@ -107,10 +108,16 @@ with main_col:
     for i in range(1, len(st.session_state.message_history) + 1):
         this_message = st.session_state.message_history[-i]
         if isinstance(this_message, AIMessage):
-            message_box = st.chat_message('assistant')
+            message_box = st.chat_message('assistant',avatar="🤸")
+            #message_box.markdown(this_message.content)
+
+        elif isinstance(this_message, HumanMessage):
+            message_box = st.chat_message('user', avatar="✌")
+            #message_box.markdown(this_message.content)
         else:
-            message_box = st.chat_message('user')
+            message_box = st.chat_message('user', avatar="🚶")
         message_box.markdown(this_message.content)
+        #message_box.markdown(this_message.content)
 # 3. State variables
 import pandas as pd
 with right_col:

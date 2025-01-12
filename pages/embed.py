@@ -82,6 +82,27 @@ with left_col:
 
 
 # 2. Chat history and input
+def get_text_value(data):
+  """
+  Extracts the 'text' value from the input data.
+
+  Args:
+    data: The input data, which can be either a string or a list of dictionaries.
+
+  Returns:
+    The 'text' value if found, otherwise the original data.
+  """
+
+  if isinstance(data, str):
+    return data
+
+  for item in data:
+    if isinstance(item, dict) and 'text' in item:
+      return item['text']
+
+  return data
+
+
 with main_col:
     user_input = st.chat_input("Type here...")
 
@@ -97,10 +118,15 @@ with main_col:
     for i in range(1, len(st.session_state.message_history) + 1):
         this_message = st.session_state.message_history[-i]
         if isinstance(this_message, AIMessage):
-            message_box = st.chat_message('assistant')
-        else:
-            message_box = st.chat_message('user')
-        message_box.markdown(this_message.content)
+            message_box = st.chat_message('assistant', avatar="🤸")
+            message_box.markdown(get_text_value(this_message.content))
+        elif isinstance(this_message, HumanMessage):
+            message_box = st.chat_message('user', avatar="✌")
+            message_box.markdown(get_text_value(this_message.content))
+        #else:
+        #    message_box = st.chat_message('user', avatar="🚶")
+        #    message_box.markdown(get_text_value(this_message.content))
+        #message_box.markdown(get_text_value(this_message.content))
 
 
 
