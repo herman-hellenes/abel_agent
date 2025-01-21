@@ -5,7 +5,7 @@ AGENT_TYPE = 'xc_sport' #must correspond to subfolder of ./resources
 # def get_agent_config():
 #    # Always get the latest value from session state
 #    return {
-#        "agent_type": st.session_state.get('AGENT_TYPE', 'flower_shop'),
+#        "agent_type": st.session_state.get('AGENT_TYPE', 'xc_sport'),
 #        "path": f"path/to/{st.session_state.get('AGENT_TYPE', 'General').lower()}"
 #    }
 # # Use it when needed
