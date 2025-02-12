@@ -1,5 +1,5 @@
 import streamlit as st
-from vector_store import FlowerShopVectorStore
+from vector_store import ShopVectorStore
 from chatbot import app
 from langchain_core.messages import AIMessage, HumanMessage
 from tools import customers_database, data_protection_checks, orders_database
@@ -8,7 +8,7 @@ import mypaths
 st.set_page_config(layout='wide', page_title='Cartwheel | Everlyn Demo', page_icon='🤸',initial_sidebar_state="collapsed" )
 
 # #SETTING AGENT TYPE: TODO!!
-# AGENT_TYPES = ["flower_shop", "xc_sport"]
+# AGENT_TYPES = ["fjellsport", "xc_sport"]
 # # Store in session state to persist across reruns
 # if 'AGENT_TYPE' not in st.session_state:
 #     st.session_state.AGENT_TYPE = AGENT_TYPES[0]

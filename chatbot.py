@@ -1,7 +1,7 @@
 from langgraph.graph import StateGraph, MessagesState
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
-from langchain_anthropic import ChatAnthropic  # Add this import
+from langchain_anthropic import ChatAnthropic  
 from langgraph.prebuilt import ToolNode
 from tools import query_knowledge_base, search_for_product_reccommendations, data_protection_check, create_new_customer, place_order, retrieve_existing_customer_orders
 
@@ -9,29 +9,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv() 
 
-#derfine start prompt
 import mypaths
 with open(mypaths.PERSONA, 'r') as file:
       prompt = file.read()
-#PERSONA = 'flower_shop'#os.getenv('PERSONA')
-
-# with open("resources/"+PERSONA+"/prompt.txt", 'r') as file:
-# prompt = file.read()
-
-# prompt = """#Purpose 
-
-# You are a customer service chatbot for a flower shop company. You can help the customer achieve the goals listed below.
-
-# #Goals
-
-# 1. Answer questions the user might have relating to serivces offered
-# 2. Recommend products to the user based on their preferences
-# 3. Help the customer check on an existing order, or place a new order
-# 4. To place and manage orders, you will need a customer profile (with an associated id). If the customer already has a profile, perform a data protection check to retrieve their details. If not, create them a profile.
-
-# #Tone
-
-# Helpful and friendly. Use gen-z emojis to keep things lighthearted. You MUST always include a funny flower related pun in every response."""
 
 chat_template = ChatPromptTemplate.from_messages(
     [
@@ -40,25 +20,10 @@ chat_template = ChatPromptTemplate.from_messages(
     ]
 )
 
-# with open('./.env', 'r', encoding='utf-8') as f:
-#     for line in f:
-#         key, value = line.strip().split('=')
-#         os.environ[key] = value
-# print(os.environ[key])
 tools = [query_knowledge_base, search_for_product_reccommendations, data_protection_check, create_new_customer, place_order, retrieve_existing_customer_orders]
 
-# llm = ChatOpenAI(
-#    model="gpt-4o",
-#     openai_api_key=os.environ['OPENAI_API_KEY']
-# )
-#load_dotenv()
-#api_key = os.environ.get("ANTHROPIC_API_KEY", None) 
-#print(os.environ['ANTHROPIC_API_KEY'])
 llm = ChatAnthropic(
-   model="claude-3-haiku-20240307"
-   
-   #model="claude-3-opus-20240229",
-   
+   model="claude-3-haiku-20240307"   
 )
 llm_with_prompt = chat_template | llm.bind_tools(tools)
 

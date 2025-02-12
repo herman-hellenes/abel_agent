@@ -1,9 +1,9 @@
 from langchain_core.tools import tool
 from typing import List, Dict
-from vector_store import FlowerShopVectorStore
+from vector_store import ShopVectorStore
 import json
 import mypaths
-vector_store = FlowerShopVectorStore()
+vector_store = ShopVectorStore()
 
 
 with open(mypaths.CUSTOMER_DB_FILE_PATH, 'r') as f:
@@ -115,9 +115,9 @@ def search_for_product_reccommendations(description: str):
     """
     Looks up information in a knowledge base to help with product recommendation for customers. For example:
 
-    "Boquets suitable for birthdays, maybe with red flowers"
-    "A large boquet for a wedding"
-    "A cheap boquet with wildflowers"
+    "Rock climbing shoes, perfect for big walls"
+    "A rope for your next climbing adventure, never leave home without it"
+    "A cool tshirt to impress your friends of being a climber bum"
 
     Args:
         query (str): Description of product features

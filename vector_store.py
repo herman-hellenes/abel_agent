@@ -44,7 +44,7 @@ class CustomEmbeddingClass(EmbeddingFunction):
 
 
 
-class FlowerShopVectorStore:
+class ShopVectorStore:
     def __init__(self):
         db = PersistentClient(path=DB_PATH)
 
